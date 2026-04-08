@@ -50,16 +50,28 @@ export const MenuBanner = () => {
     dots: true,
     arrows: false,
     infinite: true,
-    speed: 700,
+    speed: 800,
     slidesToScroll: 1,
+    slidesToShow: 3,
     autoplay: true,
-    autoplaySpeed: 3000,
-    cssEase: "linear",
-    pauseOnHover: true,
+    autoplaySpeed: 4000,
+    cssEase: "ease-in-out",
+    pauseOnHover: false,
     pauseOnFocus: true,
+    appendDots: (dots) => (
+      <div
+        style={{
+          bottom: "-40px",
+          position: "absolute",
+          width: "100%",
+          color: "#697ef3",
+        }}
+      >
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
     responsive: [
       {
-        breakpoint: 10000,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -85,54 +97,59 @@ export const MenuBanner = () => {
   };
   return (
     <>
-      <section>
-        <div className="py-16 bg-red-400 text-black">
-          <div className="container">
-            {/* Header section */}
-            <div className="space-y-5 mb-10">
-              <h1 className="text-center font-bold text-4xl">Our menu</h1>
-              <div className="text-center sm:max-w-sm mx-auto text-xs opacity-75 ">
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
-                sit, maxime qui modi iure illo mollitia porro assumenda
-                repudiandae ullam delectus amet magnam voluptates! Debitis optio
-                blanditiis voluptatem officia hic.
-              </div>
+      <section
+        id="products"
+        className=" bg-[#ABB7E2] text-black overflow-hidden scroll-mt-15 relative min-h-screen"
+      >
+        <div
+          className="absolute top-0 left-0 w-[40%] h-37.5 bg-[#6669C5] opacity-20 pointer-events-none z-0 
+  [clip-path:polygon(0_0,_100%_0,_0_100%)]"
+        ></div>
+        <div className="container h-screen flex flex-col justify-center pt-4 pb-6 z-10">
+          {/* Header section */}
+          <div className="space-y-6 mb-6">
+            <h1 className="text-center font-bold font-playwrite text-[#11125D] text-4xl lg:text-5xl">
+              Our menu
+            </h1>
+            <div className="text-center sm:max-w-md mx-auto text-lg opacity-75">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, sit,
+              maxime qui modi iure illo mollitia porro.
             </div>
-            {/* Slider section */}
-            <div>
-              <Slider {...settings}>
-                {menuData.map((menu) => (
-                  <div className="my-16">
-                    <div className="flex flex-col gap-4 py-8 px-6 mx-4 rounded-xl">
-                      {/* Image section */}
-                      <div className="mb-3 flex justify-around items-center">
-                        <img
-                          src={menu.img}
-                          alt="Menu item"
-                          className="rounded-full w-auto sm:max-w-[200px] md:max-w-[250px] shadow-1"
-                        />
-                      </div>
-                      {/* Text content section */}
-                      <div className="flex flex-col items-center gap-4">
-                        <div>
-                          <h1 className="text-xl">{menu.name}</h1>
-                          <p className="text-3xl font-semibold">
-                            <span className="text-3xl font-customCursive font-bold">
-                              Only{" "}
-                            </span>
-                            {menu.price}
-                          </p>
-                          <a href="#" className="underline">
-                            Buy now
-                          </a>
-                        </div>
-                      </div>
+          </div>
+
+          {/* Slider section */}
+          <div className="w-full">
+            <Slider {...settings}>
+              {menuData.map((menu) => (
+                <div key={menu.id} className="px-4 mt-5">
+                  <div className="flex flex-col items-center px-6 py-4 bg-white/20 backdrop-blur-md rounded-3xl border border-white/30 shadow-sm shadow-[#4B4EA4]">
+                    {/* Image section */}
+                    <div className="mb-6">
+                      <img
+                        src={menu.img}
+                        alt={menu.name}
+                        className="rounded-full w-40 h-40 object-cover shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    {/* Text content section */}
+                    <div className="text-center">
+                      <h2 className="text-xl font-semibold mb-2 text-[#11125D]">
+                        {menu.name}
+                      </h2>
+                      <p className="text-2xl font-bold mb-4">
+                        <span className="text-3xl text-[#485edb] font-customCursive">
+                          Only{" "}
+                        </span>
+                        {menu.price}
+                      </p>
+                      <button className="font-customSans bg-primary text-light px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:bg-primary/90 transition-all duration-300 transform active:scale-95 mb-5">
+                        Buy now
+                      </button>
                     </div>
                   </div>
-                ))}
-              </Slider>
-            </div>
+                </div>
+              ))}
+            </Slider>
           </div>
         </div>
       </section>

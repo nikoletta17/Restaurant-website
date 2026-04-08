@@ -30,10 +30,10 @@ export const Hero = () => {
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto]  sm:gap-7 gap-0 items-center">
               {/* Text content section */}
               <div className="space-y-6 text-center flex flex-col items-center">
-                <h1 className="my-7 flex items-center leading-[0.85] gap-1 text-[8rem] lg:text-[14rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]">
-                  Rice
-                  <span className="font-customSans text-4xl lg:text-5xl text-dark ml-2 tracking-tight opacity-90 -mt-8">
-                    Bowl
+                <h1 className="my-7 flex items-center leading-[0.85] gap-1 text-[7rem] lg:text-[10rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]">
+                  Dishes
+                  <span className="font-customSans text-3xl lg:text-4xl text-[#1c1f61d3] ml-2 tracking-tight opacity-90 -mt-8">
+                    and Drinks
                   </span>
                 </h1>
 
@@ -52,7 +52,7 @@ export const Hero = () => {
               <div className="flex justify-center sm:justify-end relative z-30 lg:pr-16">
                 <img
                   src={HeroImg}
-                  alt="Rice Bowl"
+                  alt="Hero Img"
                   className="w-75 min-[648px]:w-112.5 max-w-full h-auto rounded-full shadow-2xl rotate-12 transition-transform duration-500"
                 />
               </div>
