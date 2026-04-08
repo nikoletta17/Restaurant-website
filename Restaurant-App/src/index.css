@@ -1,8 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Poppins:wght@400;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
   --font-customSans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-customCursive: "Great Vibes", cursive;
+  --font-headers: "Allura", cursive;
+
+  --color-primary: #5d60c1;
+  --color-dark: #1e1e1e;
+  --color-light: #f5f5f5;
+  --color-lightBlue: #dbedf7;
 }
