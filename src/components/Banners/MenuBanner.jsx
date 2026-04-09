@@ -64,7 +64,6 @@ export const MenuBanner = () => {
           bottom: "-40px",
           position: "absolute",
           width: "100%",
-          color: "#697ef3",
         }}
       >
         <ul style={{ margin: "0px" }}> {dots} </ul>
