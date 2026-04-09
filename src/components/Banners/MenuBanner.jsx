@@ -124,11 +124,11 @@ export const MenuBanner = () => {
                 <div key={menu.id} className="px-4 mt-5">
                   <div className="flex flex-col items-center px-6 py-4 bg-white/20 backdrop-blur-md rounded-3xl border border-white/30 shadow-sm shadow-[#4B4EA4]">
                     {/* Image section */}
-                    <div className="mb-6">
+                    <div className="mb-6 group">
                       <img
                         src={menu.img}
                         alt={menu.name}
-                        className="rounded-full w-40 h-40 object-cover shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                        className="rounded-full w-40 h-40 object-cover shadow-2xl transform group-hover:scale-115 group-hover:rotate-[50deg] transition-all duration-700"
                       />
                     </div>
                     {/* Text content section */}
