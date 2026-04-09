@@ -1,13 +1,17 @@
 import React from "react";
 import Slider from "react-slick";
-import MenuImg1 from "../../assets/banner/Menu1.png";
+import ItemImg1 from "../../assets/Dishes/Item1.png";
+import ItemIm2 from "../../assets/Dishes/Item2.png";
+import ItemImg3 from "../../assets/Dishes/Item3.png";
+import ItemImg4 from "../../assets/Dishes/Item4.png";
+import ItemImg5 from "../../assets/Dishes/Item5.png";
 
 const menuData = [
   {
     id: 1,
     name: "Noodle Soup",
     price: "$29.99",
-    img: MenuImg1,
+    img: ItemImg1,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae veniam, itaque quasi nemo voluptatum corrupti officia, repellat, porro maiores unde ad magnam dignissimos et maxime possimus vitae sunt eveniet!",
   },
@@ -15,7 +19,7 @@ const menuData = [
     id: 2,
     name: "Noodle Soup",
     price: "$29.99",
-    img: MenuImg1,
+    img: ItemIm2,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae veniam, itaque quasi nemo voluptatum corrupti officia, repellat, porro maiores unde ad magnam dignissimos et maxime possimus vitae sunt eveniet!",
   },
@@ -23,7 +27,7 @@ const menuData = [
     id: 3,
     name: "Noodle Soup",
     price: "$29.99",
-    img: MenuImg1,
+    img: ItemImg3,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae veniam, itaque quasi nemo voluptatum corrupti officia, repellat, porro maiores unde ad magnam dignissimos et maxime possimus vitae sunt eveniet!",
   },
@@ -31,7 +35,7 @@ const menuData = [
     id: 4,
     name: "Noodle Soup",
     price: "$29.99",
-    img: MenuImg1,
+    img: ItemImg4,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae veniam, itaque quasi nemo voluptatum corrupti officia, repellat, porro maiores unde ad magnam dignissimos et maxime possimus vitae sunt eveniet!",
   },
@@ -39,7 +43,7 @@ const menuData = [
     id: 5,
     name: "Noodle Soup",
     price: "$29.99",
-    img: MenuImg1,
+    img: ItemImg5,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae veniam, itaque quasi nemo voluptatum corrupti officia, repellat, porro maiores unde ad magnam dignissimos et maxime possimus vitae sunt eveniet!",
   },
@@ -121,14 +125,22 @@ export const MenuBanner = () => {
             <Slider {...settings}>
               {menuData.map((menu) => (
                 <div key={menu.id} className="px-4 mt-5">
-                  <div className="flex flex-col items-center px-6 py-4 bg-white/20 backdrop-blur-md rounded-3xl border border-white/30 shadow-sm shadow-[#4B4EA4]">
+                  <div className="group relative flex flex-col items-center px-6 py-4 bg-white/20 backdrop-blur-md rounded-3xl border border-white/30 shadow-sm shadow-[#4B4EA4]">
                     {/* Image section */}
-                    <div className="mb-6 group">
-                      <img
-                        src={menu.img}
-                        alt={menu.name}
-                        className="rounded-full w-40 h-40 object-cover shadow-2xl transform group-hover:scale-115 group-hover:rotate-[50deg] transition-all duration-700"
-                      />
+                    <div className="mb-6 p-2.5 relative h-40 w-40 flex justify-center items-center group">
+                      {/* Semi circle */}
+                      <div className="absolute inset-0 transition-all duration-700 group-hover:rotate-[50deg] z-0">
+                        <div className="absolute right-0 top-0 h-full w-1/2 bg-[#3C3F8F]/90 rounded-r-full origin-left" />
+                      </div>
+
+                      {/* Img itself */}
+                      <div className="relative z-10 w-full h-full rounded-full overflow-hidden border-transparent">
+                        <img
+                          src={menu.img}
+                          alt={menu.name}
+                          className="w-full h-full object-cover transition-all duration-700 transform group-hover:scale-110 group-hover:rotate-[50deg]"
+                        />
+                      </div>
                     </div>
                     {/* Text content section */}
                     <div className="text-center">
