@@ -13,3 +13,9 @@
   --color-light: #f5f5f5;
   --color-lightBlue: #dbedf7;
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
