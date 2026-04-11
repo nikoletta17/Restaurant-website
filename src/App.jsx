@@ -4,7 +4,7 @@ import { Testimonial } from "./components/Testimonial/Testimonial";
 import { Hero } from "./components/Hero/Hero";
 import { NavBar2 } from "./components/NavBar/NevBar2";
 import { AboutBanner } from "./components/Banners/AboutBanner";
-
+import { OrderBanner } from "./components/Banners/OrderBanner";
 
 function App() {
   return (
@@ -12,8 +12,9 @@ function App() {
       <main>
         <NavBar2 />
         <Hero />
-         <AboutBanner />
+        <AboutBanner />
         <MenuBanner />
+        <OrderBanner />
         <Testimonial />
       </main>
     </>

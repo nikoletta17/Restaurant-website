@@ -44,7 +44,7 @@ export const Hero = () => {
 
                 {/* Btn */}
                 <button className="font-customSans bg-primary text-light px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:bg-primary/90 transition-all duration-300 transform active:scale-95 mb-5">
-                  ORDER NOW
+                  Order now
                 </button>
               </div>
 
@@ -53,7 +53,7 @@ export const Hero = () => {
                 <img
                   src={HeroImg}
                   alt="Hero Img"
-                  className="w-75 min-[648px]:w-112.5 max-w-full h-auto rounded-full shadow-2xl rotate-12 transition-transform duration-500"
+                 className="w-75 min-[648px]:w-112.5 max-w-full h-auto rounded-full shadow-2xl rotate-12 transition-transform duration-500"
                 />
               </div>
             </div>
@@ -63,3 +63,4 @@ export const Hero = () => {
     </>
   );
 };
+ 
