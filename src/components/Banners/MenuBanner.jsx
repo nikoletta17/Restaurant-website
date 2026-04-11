@@ -111,9 +111,9 @@ export const MenuBanner = () => {
         <div className="container h-screen flex flex-col justify-center pt-4 pb-6 z-10">
           {/* Header section */}
           <div className="space-y-6 mb-6">
-            <h1 className="text-center font-bold font-playwrite text-[#11125D] text-4xl lg:text-5xl">
+            <h2 className="text-center font-bold font-playwrite text-[#11125D] text-4xl lg:text-5xl">
               Our menu
-            </h1>
+            </h2>
             <div className="text-center sm:max-w-md mx-auto text-lg opacity-75">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, sit,
               maxime qui modi iure illo mollitia porro.
