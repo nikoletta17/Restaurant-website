@@ -1,25 +1,61 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import AboutImg from "../../assets/AboutImg.png";
 
 export const AboutBanner = () => {
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"], 
+  });
+
+  const circleX = useTransform(scrollYProgress, [0, 0.5, 1], [-150, 0, -150]);
+  const circleScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+  
+  const textX = useTransform(scrollYProgress, [0, 0.5, 1], [150, 0, 150]);
+  const imgX = useTransform(scrollYProgress, [0, 0.5, 1], [-150, 0, -150]);
+  
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 1, 1, 1, 0]);
+  const overallScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
+
   return (
     <>
-      <section id="about" className="overflow-hidden bg-lightBlue scroll-mt-15">
+      <section 
+        ref={sectionRef}
+        id="about" 
+        className="overflow-hidden bg-lightBlue scroll-mt-15"
+      >
         <div className="min-h-screen flex justify-center items-center">
-          <div className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-10">
+          <motion.div 
+            style={{ scale: overallScale }}
+            className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-10"
+          >
+            
             {/* Img section */}
-            <div className="relative w-full sm:w-1/2 flex justify-center items-center">
-              {/* Semi circle background */}
-              <div className="absolute left-1/2 -translate-x-[100%]  h-[260px] w-[130px] md:h-[350px] md:w-[180px] lg:h-[450px] lg:w-[230px] bg-[#3C3F8F]/90 rounded-l-full z-0" />
-              {/* Img itself */}
-              <img
+            <motion.div 
+              style={{ x: imgX, opacity }}
+              className="relative w-full sm:w-1/2 flex justify-center items-center cursor-pointer group"
+            >
+              {/* Semi circle background (Паралакс виїзду) */}
+              <motion.div 
+                style={{ x: circleX, scale: circleScale, originX: 1 }}
+                className="absolute left-1/2 -translate-x-[100%] h-[260px] w-[130px] md:h-[350px] md:w-[180px] lg:h-[450px] lg:w-[230px] bg-[#3C3F8F]/90 rounded-l-full z-0" 
+              />
+              
+              {/* Img itself*/}
+              <motion.img
                 src={AboutImg}
                 alt="About Img"
-                className="relative w-full max-w-[250px] md:max-w-[450px] object-cover rounded-full z-10 shadow-[50px_0_50px_-10px_rgba(0,0,0,0.08)]"
+                className="relative w-full max-w-[250px] md:max-w-[450px] object-cover rounded-full z-10 shadow-[50px_0_50px_-10px_rgba(0,0,0,0.08)] transition-shadow duration-500 group-hover:shadow-[60px_10px_70px_-15px_rgba(60,63,143,0.3)]"
               />
-            </div>
+            </motion.div>
+
             {/* Content section */}
-            <div className="space-y-6 w-full sm:w-1/2 text-center sm:text-left">
+            <motion.div 
+              style={{ x: textX, opacity }}
+              className="space-y-6 w-full sm:w-1/2 text-center sm:text-left px-4"
+            >
               <span className="inline-block tracking-wide font-bold font-playwrite text-3xl lg:text-4xl text-[#3C3F8F]">
                 About us
               </span>
@@ -32,11 +68,19 @@ export const AboutBanner = () => {
                 dining experiences that celebrate the rich flavors and
                 traditions of our cuisine.
               </p>
-              <button className="font-customSans bg-primary text-light px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:bg-primary/90 transition-all duration-300 transform active:scale-95 mb-5">
+              
+
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                className="font-customSans bg-primary text-light px-8 py-3 rounded-full shadow-lg hover:bg-primary/90 transition-colors duration-300 transform mb-5"
+              >
                 View More
-              </button>
-            </div>
-          </div>
+              </motion.button>
+            </motion.div>
+
+          </motion.div>
         </div>
       </section>
     </>

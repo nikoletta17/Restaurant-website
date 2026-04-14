@@ -1,3 +1,4 @@
+import Lenis from "@studio-freight/lenis";
 import React from "react";
 import { MenuBanner } from "./components/Banners/MenuBanner";
 import { Testimonial } from "./components/Testimonial/Testimonial";
