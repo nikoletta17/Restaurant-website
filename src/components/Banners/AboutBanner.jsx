@@ -22,6 +22,7 @@ export const AboutBanner = () => {
     [0, 0.2, 0.5, 0.8, 1],
     [0, 1, 1, 1, 0],
   );
+  
   const overallScale = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
@@ -45,7 +46,7 @@ export const AboutBanner = () => {
               style={{ x: imgX, opacity }}
               className="relative w-full sm:w-1/2 flex justify-center items-center cursor-pointer"
             >
-              {/* Semi circle background (Паралакс виїзду) */}
+              {/* Semi circle background (Exit parallax) */}
               <motion.div
                 style={{ x: circleX, scale: circleScale, originX: 1 }}
                 className="absolute left-1/2 -translate-x-[100%] h-[260px] w-[130px] md:h-[350px] md:w-[180px] lg:h-[450px] lg:w-[230px] bg-[#3C3F8F]/90 rounded-l-full z-0"
@@ -68,17 +69,17 @@ export const AboutBanner = () => {
                 About us
               </span>
 
-              {/* ЗАМЕНЯЕМ h2 НА НАШ НОВЫЙ КОМПОНЕНТ */}
+              {/* Animated header */}
               <AnimatedTitle
                 tag="h2"
                 containerRef={sectionRef}
-                className="font-headers text-7xl lg:text-8xl leading-[0.85] text-primary" // добавили leading
+                className="font-headers text-7xl lg:text-8xl leading-[0.85] text-primary"
               >
                 The Facet
               </AnimatedTitle>
 
               <motion.p
-                style={{ opacity }} // Оставляем opacity для параграфа, чтобы он плавно исчезал
+                style={{ opacity }}
                 className="text-xl text-gray-600 max-w-lg mx-auto sm:mx-0"
               >
                 Welcome to The Facet, where culinary excellence meets
@@ -88,7 +89,7 @@ export const AboutBanner = () => {
               </motion.p>
 
               <motion.button
-                style={{ opacity }} // Кнопка тоже пусть исчезает плавно
+                style={{ opacity }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 100, damping: 15 }}
