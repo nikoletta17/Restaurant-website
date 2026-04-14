@@ -39,7 +39,7 @@ export const MenuBanner = () => {
     pauseOnHover: false,
     pauseOnFocus: true,
     appendDots: (dots) => (
-      <div style={{ bottom: "-40px", position: "absolute", width: "100%" }}>
+      <div style={{ bottom: "-25px", position: "absolute", width: "100%" }}>
         <ul style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
@@ -67,7 +67,6 @@ export const MenuBanner = () => {
         ></motion.div>
 
         <div className="container h-screen flex flex-col justify-center pt-4 pb-6 z-10">
-          
           {/* Header section */}
           <div className="space-y-6 mb-6">
             <AnimatedTitle
@@ -78,7 +77,7 @@ export const MenuBanner = () => {
               Our menu
             </AnimatedTitle>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 0.75, y: 0 }}
               viewport={{ once: false }}
@@ -94,15 +93,15 @@ export const MenuBanner = () => {
           <div className="w-full">
             <Slider {...settings}>
               {menuData.map((menu, index) => (
-                <div key={menu.id} className="px-4 py-10"> 
-                  <motion.div 
+                <div key={menu.id} className="px-4 py-10">
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.7 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false, amount: 0.5 }} 
-                    transition={{ 
-                      duration: 0.6, 
+                    viewport={{ once: false, amount: 0.5 }}
+                    transition={{
+                      duration: 0.6,
                       ease: "easeOut",
-                      delay: index * 0.05 
+                      delay: index * 0.05,
                     }}
                     className="group relative flex flex-col items-center px-6 py-4 bg-white/20 backdrop-blur-md rounded-3xl border border-white/30 shadow-sm shadow-[#4B4EA4]"
                   >
