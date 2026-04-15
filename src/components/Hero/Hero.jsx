@@ -5,9 +5,6 @@ import HeroImg from "../../assets/2.png";
 export const Hero = () => {
   const { scrollY } = useScroll();
 
-  //Triangles animations
-  const triangleTrans = useTransform(scrollY, [0, 1000], [0, -400]);
-
   //Plate animations
   const plateRotate = useTransform(scrollY, [0, 1000], [12, 180]);
   const plateY = useTransform(scrollY, [0, 1000], [0, -100]);
@@ -27,7 +24,6 @@ export const Hero = () => {
         >
           {/* Triangle (Slides down from top-right) */}
           <motion.div
-            style={{ x: triangleTrans, y: triangleTrans }}
             initial={{ x: 300, y: -300, opacity: 0 }}
             animate={{ x: 0, y: 0, opacity: 0.4 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}

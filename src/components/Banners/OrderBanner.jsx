@@ -1,10 +1,90 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAnimate, useInView } from "framer-motion";
 import OrderImg from "../../assets/OrderImg.png";
 
 export const OrderBanner = () => {
+  const [scope, animate] = useAnimate();
+  const plateInView = useInView(scope, { once: false, amount: 0.8 });
+  const [isIntroFinished, setIsIntroFinished] = useState(false);
+  useEffect(() => {
+    const handleAnimation = async () => {
+      await animate(
+        "#plate",
+        {
+          x: -500,
+          y: -500,
+          opacity: 0,
+          rotate: 0,
+        },
+        {
+          duration: 0,
+        },
+      );
+
+      await animate(
+        "#plate",
+        {
+          x: 0,
+          y: -250,
+          opacity: 1,
+          rotate: 90,
+        },
+        {
+          duration: 0.8,
+          ease: "easeOut",
+        },
+      );
+
+      await animate(
+        "#plate",
+        {
+          y: 0,
+        },
+        {
+          duration: 1,
+          ease: "easeInOut",
+        },
+      );
+
+      await animate(
+        "#plate",
+        {
+          rotate: 180,
+        },
+        {
+          duration: 1.3,
+          ease: "easeInOut",
+        },
+      );
+
+      setIsIntroFinished(true);
+    };
+    if (plateInView && !isIntroFinished) {
+      handleAnimation();
+    }
+  }, [plateInView, animate, isIntroFinished]);
+
+  useEffect(() => {
+    let rotationAnimation;
+
+    if (isIntroFinished && plateInView) {
+      rotationAnimation = animate(
+        "#plate",
+        { rotate: 360 }, 
+        { 
+          duration: 20,
+          repeat: Infinity, 
+          ease: "linear" 
+        }
+      );
+    }
+
+    return () => rotationAnimation?.stop(); // Stop when leave the section
+  }, [isIntroFinished, plateInView, animate]);
+
   return (
     <>
-      <section id="order" className="overflow-hidden bg-lightBlue">
+      <section ref={scope} id="order" className="overflow-hidden bg-lightBlue">
         <div className="min-h-screen flex justify-center items-center px-5 py-20 md:py-0 md:pb-7">
           <div className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-2">
             {/* Content section */}
@@ -40,9 +120,10 @@ export const OrderBanner = () => {
 
               {/* Img itself */}
               <img
+                id="plate"
                 src={OrderImg}
                 alt="Order Image"
-                className="relative z-10 w-full max-w-[300px] md:max-w-[490px] lg:max-w-[520px] object-cover rounded-full"
+                className="relative rotate-180 z-10 w-full max-w-[300px] md:max-w-[490px] lg:max-w-[520px] object-cover rounded-full"
               />
             </div>
           </div>

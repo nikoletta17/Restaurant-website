@@ -44,7 +44,7 @@ export const MenuBanner = () => {
     slidesToShow: 3,
     autoplay: true,
     autoplaySpeed: 4000,
-    cssEase: "ease-in-out",
+    cssEase: "linear",
     pauseOnHover: false,
     pauseOnFocus: true,
     appendDots: (dots) => (
@@ -70,9 +70,9 @@ export const MenuBanner = () => {
           {/* Triangle */}
           <motion.div
             style={{ y: triangleY }}
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.6 }}
             whileInView={{ opacity: 0.2, scale: 1 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 1.1 }}
             className="absolute top-0 left-0 w-[40%] h-37.5 bg-[#6669C5] pointer-events-none z-0 
             [clip-path:polygon(0_0,_100%_0,_0_100%)]"
           ></motion.div>
@@ -120,7 +120,7 @@ export const MenuBanner = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="group relative flex flex-col items-center px-6 py-4 bg-white/20 backdrop-blur-md rounded-3xl border border-white/30 shadow-sm shadow-[#4B4EA4]"
+                      className="group relative flex flex-col items-center px-6 py-4 bg-white/20  backdrop-blur-md rounded-3xl border border-white/30 shadow-sm shadow-[#4B4EA4]"
                     >
                       {/* Image section */}
                       <div className="mb-6 p-2.5 relative h-40 w-40 flex justify-center items-center group">
