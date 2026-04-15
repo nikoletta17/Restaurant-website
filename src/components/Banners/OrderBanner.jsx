@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useAnimate, useInView } from "framer-motion";
+import { useAnimate, useInView, motion } from "framer-motion";
 import OrderImg from "../../assets/OrderImg.png";
+import { AnimatedTitle } from "../Common/AnimatedTitle";
 
 export const OrderBanner = () => {
   const [scope, animate] = useAnimate();
@@ -70,12 +71,12 @@ export const OrderBanner = () => {
     if (isIntroFinished && plateInView) {
       rotationAnimation = animate(
         "#plate",
-        { rotate: 360 }, 
-        { 
-          duration: 20,
-          repeat: Infinity, 
-          ease: "linear" 
-        }
+        { rotate: 360 },
+        {
+          duration: 15,
+          repeat: Infinity,
+          ease: "linear",
+        },
       );
     }
 
@@ -89,17 +90,27 @@ export const OrderBanner = () => {
           <div className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-2">
             {/* Content section */}
             <div className="space-y-6 w-full sm:w-1/2 text-center flex flex-col items-center sm:mt-20">
-              <h2 className="my-7 flex items-center leading-[0.85] gap-1 text-[7rem] lg:text-[8rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]">
+              <AnimatedTitle
+                tag="h2"
+                containerRef={scope}
+                className="my-7 flex items-center leading-[0.85] gap-1 text-[7rem] lg:text-[8rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]"
+              >
                 Order now
                 <span className="font-customSans text-3xl lg:text-3xl text-[#1c1f61d3] ml-2 tracking-tight opacity-90 -mt-[-50px]">
                   Enjoy!
                 </span>
-              </h2>
+              </AnimatedTitle>
 
-              <p className="font-customSans text-lg sm:text-left text-dark/80 leading-relaxed max-w-md mx-auto sm:mx-0">
+              <motion.p
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-customSans text-lg sm:text-left text-dark/80 leading-relaxed max-w-md mx-auto sm:mx-0"
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                 amet inventore recusandae.
-              </p>
+              </motion.p>
 
               {/* Btn */}
               <button className="font-customSans bg-primary text-light px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:bg-primary/90 transition-all duration-300 transform active:scale-95 mb-5">
