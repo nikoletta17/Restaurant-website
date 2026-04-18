@@ -3,18 +3,17 @@ import React from "react";
 import { MenuBanner } from "./components/Banners/MenuBanner";
 import { Testimonial } from "./components/Testimonial/Testimonial";
 import { Hero } from "./components/Hero/Hero";
-import { NavBar2 } from "./components/NavBar/NevBar2";
+import { NavBar } from "./components/NavBar/NevBar";
 import { AboutBanner } from "./components/Banners/AboutBanner";
 import { OrderBanner } from "./components/Banners/OrderBanner";
 import { Newsletter } from "./components/Newsletter/Newsletter";
-
-
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
     <>
       <main>
-        <NavBar2 />
+        <NavBar />
         <Hero />
         <AboutBanner />
         <MenuBanner />
@@ -23,7 +22,7 @@ function App() {
         <Newsletter />
       </main>
       <footer>
-    
+        <Footer />
       </footer>
     </>
   );

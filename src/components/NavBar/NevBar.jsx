@@ -11,7 +11,7 @@ const NavbarMenu = [
   { id: 5, title: "Shop now", link: "#order" },
 ];
 
-export const NavBar2 = () => {
+export const NavBar = () => {
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
