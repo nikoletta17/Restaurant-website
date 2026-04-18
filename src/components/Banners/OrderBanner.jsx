@@ -86,7 +86,7 @@ export const OrderBanner = () => {
   return (
     <>
       <section ref={scope} id="order" className="overflow-hidden bg-lightBlue">
-        <div className="min-h-screen flex justify-center items-center px-5 py-20 md:py-0 md:pb-7">
+        <div className="min-h-screen flex justify-center items-center px-5 py-20 md:py-0 md:pb-7 lg:pb-0">
           <div className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-2">
             {/* Content section */}
             <div className="space-y-6 w-full sm:w-1/2 text-center flex flex-col items-center sm:mt-20">
@@ -113,7 +113,7 @@ export const OrderBanner = () => {
               </motion.p>
 
               {/* Btn */}
-              <button className="font-customSans bg-primary text-light px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:bg-primary/90 transition-all duration-300 transform active:scale-95 mb-5">
+              <button className="font-customSans bg-primary text-light px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:bg-primary/90 transition-all duration-300 transform active:scale-95 mb-">
                 Shop now
               </button>
             </div>

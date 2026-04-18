@@ -16,7 +16,7 @@ export const NavBar2 = () => {
     left: 0,
     width: 0,
     opacity: 0,
-    activeId: null, // Храним ID активного таба
+    activeId: null, // Store the ID of the active tab
   });
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -55,15 +55,15 @@ export const NavBar2 = () => {
 
           {/* Menu Section */}
           <ul
-            // ИСПРАВЛЕНО: сбрасываем activeId при уходе мыши
+            // reset activeId when the mouse leaves
             onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0, activeId: null }))}
             className="relative flex items-center w-fit px-6 py-1 rounded-md border-2 border-black bg-white/80 select-none"
           >
             {NavbarMenu.map((menu) => (
               <Tab 
                 key={menu.id} 
-                id={menu.id} // ПЕРЕДАЕМ ID
-                activeId={position.activeId} // ПЕРЕДАЕМ ТЕКУЩИЙ АКТИВНЫЙ ID
+                id={menu.id} 
+                activeId={position.activeId} 
                 setPosition={setPosition} 
                 link={menu.link}
               >
@@ -87,11 +87,10 @@ export const NavBar2 = () => {
   );
 };
 
-// ИСПРАВЛЕНО: Добавлены id и activeId в пропсы
+
 const Tab = ({ children, setPosition, id, activeId, link }) => {
   const ref = useRef(null);
   
-  // ИСПРАВЛЕНО: Теперь isActive работает корректно
   const isActive = activeId === id;
 
   return (
@@ -104,7 +103,7 @@ const Tab = ({ children, setPosition, id, activeId, link }) => {
           left: ref.current.offsetLeft,
           width,
           opacity: 1,
-          activeId: id, // Устанавливаем текущий ID
+          activeId: id, 
         });
       }}
       className={`relative z-10 block cursor-pointer px-4 py-2 text-sm font-bold uppercase transition-colors duration-300 md:px-5 md:py-3 md:text-base ${
@@ -121,7 +120,6 @@ const Tab = ({ children, setPosition, id, activeId, link }) => {
 const Cursor = ({ position }) => {
   return (
     <motion.li
-      // ПЕРЕДАЕМ ТОЛЬКО НУЖНЫЕ ДЛЯ АНИМАЦИИ ПОЛЯ
       animate={{
         left: position.left,
         width: position.width,

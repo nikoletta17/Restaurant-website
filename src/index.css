@@ -19,3 +19,9 @@
     scroll-behavior: smooth;
   }
 }
+
+@layer components {
+  .footer__headers {
+    @apply text-3xl font-light uppercase mb-6
+  }
+}

@@ -6,6 +6,9 @@ import { Hero } from "./components/Hero/Hero";
 import { NavBar2 } from "./components/NavBar/NevBar2";
 import { AboutBanner } from "./components/Banners/AboutBanner";
 import { OrderBanner } from "./components/Banners/OrderBanner";
+import { Newsletter } from "./components/Newsletter/Newsletter";
+
+
 
 function App() {
   return (
@@ -17,7 +20,11 @@ function App() {
         <MenuBanner />
         <OrderBanner />
         <Testimonial />
+        <Newsletter />
       </main>
+      <footer>
+    
+      </footer>
     </>
   );
 }
