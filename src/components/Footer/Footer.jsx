@@ -91,6 +91,22 @@ export const Footer = () => {
             <p className="text-gray-400 text-lg">+(1) 123 456 789 </p>
           </div>
         </div>
+        {/* Rights */}
+        <div className="pt-8 border-t mt-5 border-white/5 flex flex-col md:row justify-between items-center gap-4 text-xs tracking-widest text-gray-400 uppercase">
+          <p>
+            &copy; {new Date().getFullYear()}{" "}
+            <span className="font-semibold text-lightBlue">The Facet.</span> All
+            rights reserved.
+          </p>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-lightBlue transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-lightBlue transition-colors">
+              Terms of Service
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

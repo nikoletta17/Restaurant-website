@@ -1,9 +1,12 @@
 import React from "react";
 import BgImg from "../../assets/2.png";
+import { motion } from "framer-motion";
 
 export const Newsletter = () => {
   return (
-    <section className="relative bg-primary text-white overflow-hidden py-4">
+    <section
+      id="contact"
+      className="relative bg-primary text-white overflow-hidden py-4 scroll-mt-20">
       <div
         className="absolute top-0 left-0 w-[35%] h-[60%] bg-black pointer-events-none z-0 
                    [clip-path:polygon(0_0,_100%_0,_0_100%)] opacity-40"
@@ -27,15 +30,24 @@ export const Newsletter = () => {
             </div>
 
             {/* Input */}
-            <div className="flex w-full shadow-xl max-w-[420px] rounded-full bg-white overflow-hidden">
+            <div className="flex w-full max-w-[420px] items-stretch group">
               <input
                 type="text"
-                className="w-full px-5 py-2.5 focus:outline-none bg-transparent text-dark text-base"
+                className="w-full px-5 py-3 bg-white text-dark text-base outline-none
+                           rounded-l-full border-y-2 border-l-2 border-transparent
+                           focus:border-lightBlue/30 transition-all placeholder:text-gray-400"
                 placeholder="Type here..."
               />
-              <button className="bg-dark hover:bg-black transition-all px-6 py-2.5 font-bold uppercase tracking-widest text-xs text-white">
+
+              <motion.button
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                className="bg-[#11125D] hover:bg-dark px-8 py-3 
+                           rounded-r-full font-bold uppercase tracking-widest text-xs text-white
+                           flex items-center justify-center transition-colors shadow-xl cursor-pointer"
+              >
                 Send
-              </button>
+              </motion.button>
             </div>
           </div>
 

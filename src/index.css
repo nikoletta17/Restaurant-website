@@ -18,10 +18,34 @@
   html {
     scroll-behavior: smooth;
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+     background: #ABB7E2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 16px;
+     border: 2px solid #ABB7E2;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b3d7b;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) #ABB7E2;;
+  }
 }
 
 @layer components {
   .footer__headers {
-    @apply text-3xl font-light uppercase mb-6
+    @apply text-2xl font-light uppercase mb-6
   }
 }
