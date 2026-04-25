@@ -12,8 +12,10 @@ import { Footer } from "./components/Footer/Footer";
 function App() {
   return (
     <>
-      <main>
+      <header>
         <NavBar />
+      </header>
+      <main>
         <Hero />
         <AboutBanner />
         <MenuBanner />

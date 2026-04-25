@@ -8,6 +8,8 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
+import { AiOutlineBlock } from "react-icons/ai";
+
 const FooterLinks = [
   { id: 1, title: "Home", link: "#" },
   { id: 2, title: "Products", link: "#products" },
@@ -28,17 +30,19 @@ export const Footer = () => {
     <footer className="relative bg-[#11125D]/90 text-light pt-12 pb-8 px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden border-t border-white/10">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
-          {/* Logo */}
+          {/*  Logo  */}
           <div>
-            <h3 className="footer__headers tracking-[0.2em]">
-              The <span className="font-bold">Facet</span>
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <AiOutlineBlock className="text-3xl text-lightBlue" />
+              <h3 className="footer__headers tracking-[0.2em] mb-0">
+                The <span className="font-bold">Facet</span>
+              </h3>
+            </div>
             <p className="text-gray-400 max-w-sm leading-relaxed">
               We create a gastronomic experience through the prism of perfect
               geometry of taste.
             </p>
           </div>
-
           {/*  Links  */}
           <div>
             <h3 className="footer__headers font-semibold text-lightBlue/80">

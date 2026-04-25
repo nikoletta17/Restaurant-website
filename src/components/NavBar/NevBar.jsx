@@ -1,17 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { AiOutlineBlock } from "react-icons/ai";
+import { RiMenu5Fill } from "react-icons/ri";
+import { ResponsiveMenu } from "./ResponsiveMenu";
 import { motion } from "framer-motion";
 
 const NavbarMenu = [
   { id: 1, title: "Home", link: "#" },
-  { id: 2, title: "Products", link: "#products" },
-  { id: 3, title: "About us", link: "#about" },
-  { id: 4, title: "Contact us", link: "#contact" },
-  { id: 5, title: "Shop now", link: "#order" },
+  { id: 2, title: "About us", link: "#about" },
+  { id: 3, title: "Products", link: "#products" },
+  { id: 4, title: "Shop now", link: "#order" },
+  { id: 5, title: "Contact us", link: "#contact" },
 ];
 
 export const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
@@ -54,43 +58,60 @@ export const NavBar = () => {
           </div>
 
           {/* Menu Section */}
-          <ul
-            // reset activeId when the mouse leaves
-            onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0, activeId: null }))}
-            className="relative flex items-center w-fit px-6 py-1 rounded-md border-2 border-black bg-white/80 select-none"
-          >
-            {NavbarMenu.map((menu) => (
-              <Tab 
-                key={menu.id} 
-                id={menu.id} 
-                activeId={position.activeId} 
-                setPosition={setPosition} 
-                link={menu.link}
-              >
-                {menu.title}
-              </Tab>
-            ))}
-
-            <button
-              onMouseEnter={() => setPosition((pv) => ({ ...pv, opacity: 0, activeId: null }))}
-              className="relative z-10 ml-2 text-xl hover:scale-130 duration-400 p-2 text-[#3C3F8F]"
+          <div className="hidden md:block">
+            <ul
+              // reset activeId when the mouse leaves
+              onMouseLeave={() =>
+                setPosition((pv) => ({ ...pv, opacity: 0, activeId: null }))
+              }
+              className="relative flex items-center w-fit px-6 py-1 rounded-md border-2 border-black bg-white/80 select-none"
             >
-              <FaCartShopping />
-            </button>
+              {NavbarMenu.map((menu) => (
+                <Tab
+                  key={menu.id}
+                  id={menu.id}
+                  activeId={position.activeId}
+                  setPosition={setPosition}
+                  link={menu.link}
+                >
+                  {menu.title}
+                </Tab>
+              ))}
 
-            <Cursor position={position} />
-          </ul>
+              <button
+                onMouseEnter={() =>
+                  setPosition((pv) => ({ ...pv, opacity: 0, activeId: null }))
+                }
+                className="relative z-10 ml-2 text-xl hover:scale-130 duration-400 p-2 text-[#3C3F8F]"
+              >
+                <FaCartShopping />
+              </button>
+
+              <Cursor position={position} />
+            </ul>
+          </div>
+
+          {/*  Hamburger menu */}
+          <div className="md:hidden">
+            <RiMenu5Fill
+              className="text-4xl text-white cursor-pointer hover:text-white/80 transition-all"
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          </div>
         </motion.div>
       </nav>
       <div className="h-[80px]"></div>
+
+      {/*  Mobile menu section */}
+      <div className="md:hidden">
+        <ResponsiveMenu open={isOpen} setIsOpen={setIsOpen} />
+      </div>
     </>
   );
 };
 
-
 const Tab = ({ children, setPosition, id, activeId, link }) => {
   const ref = useRef(null);
-  
   const isActive = activeId === id;
 
   return (
@@ -103,7 +124,7 @@ const Tab = ({ children, setPosition, id, activeId, link }) => {
           left: ref.current.offsetLeft,
           width,
           opacity: 1,
-          activeId: id, 
+          activeId: id,
         });
       }}
       className={`relative z-10 block cursor-pointer px-4 py-2 text-sm font-bold uppercase transition-colors duration-300 md:px-5 md:py-3 md:text-base ${
