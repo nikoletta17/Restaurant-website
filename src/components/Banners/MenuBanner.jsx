@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { AnimatedTitle } from "../Common/AnimatedTitle";
 import Slider from "react-slick";
 import ItemImg1 from "../../assets/Dishes/Item1.png";
 import ItemIm2 from "../../assets/Dishes/Item2.png";
@@ -50,6 +51,8 @@ const menuData = [
 ];
 
 export const MenuBanner = () => {
+  const sectionRef = useRef(null);
+
   const settings = {
     dots: true,
     arrows: false,
@@ -102,18 +105,24 @@ export const MenuBanner = () => {
     <>
       <section
         id="products"
+        ref={sectionRef}
         className=" bg-[#ABB7E2] text-black overflow-hidden scroll-mt-15 relative min-h-screen"
       >
         <div
           className="absolute top-0 left-0 w-[40%] h-37.5 bg-[#6669C5] opacity-20 pointer-events-none z-0 
-  [clip-path:polygon(0_0,_100%_0,_0_100%)]"
+                      [clip-path:polygon(0_0,_100%_0,_0_100%)]"
         ></div>
-        <div className="container h-screen flex flex-col justify-center pt-4 pb-6 z-10">
+        <div className="container mx-auto h-screen flex flex-col justify-center pt-4 pb-6 z-10">
           {/* Header section */}
           <div className="space-y-6 mb-6">
-            <h2 className="text-center font-bold font-playwrite text-[#11125D] text-4xl lg:text-5xl">
+            <AnimatedTitle
+              tag="h2"
+              containerRef={sectionRef}
+              className="text-center font-bold font-playwrite text-[#11125D] text-4xl lg:text-5xl"
+            >
               Our menu
-            </h2>
+            </AnimatedTitle>
+
             <div className="text-center sm:max-w-md mx-auto text-lg opacity-75">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, sit,
               maxime qui modi iure illo mollitia porro.

@@ -63,11 +63,11 @@ export const Newsletter = () => {
           <div className="shrink-0">
             <motion.img
               src={BgImg}
-              alt="Newsletter decoration"
+              alt="Newsletter img"
               animate={{ rotate: 360 }}
               transition={{
                 duration: 30, // large value - slow movements
-                repeat: Infinity, 
+                repeat: Infinity,
                 ease: "linear",
               }}
               className="w-32 md:w-44 lg:w-52 h-auto object-contain drop-shadow-2xl"
