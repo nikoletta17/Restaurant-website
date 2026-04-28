@@ -15,12 +15,11 @@ const NavbarMenu = [
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
     opacity: 0,
-    activeId: null, // Store the ID of the active tab
+    activeId: null,
   });
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -46,13 +45,13 @@ export const NavBar = () => {
             borderBottomColor: isScrolling ? "#4548a09e" : "#697ef3",
           }}
           transition={{ duration: 0.4 }}
-          className="bg-[#696DC6] flex justify-around items-center py-4 border-b-3"
+          className="bg-[#696DC6] flex justify-between items-center py-4 px-4 md:px-8 lg:px-16 border-b-3"
         >
           {/* Logo Section */}
-          <div className="font-bold text-3xl flex gap-2 items-center  font-playwrite cursor-default select-none text-white">
+          <div className="font-bold text-2xl lg:text-3xl flex gap-2 items-center font-playwrite cursor-default select-none text-white flex-shrink-0">
             <p className="text-white/80">The</p>
             <p className="text-white/80">Facet</p>
-            <p className="text-[#11125d] text-5xl">
+            <p className="text-[#11125d] text-4xl lg:text-5xl">
               <AiOutlineBlock />
             </p>
           </div>
@@ -60,11 +59,10 @@ export const NavBar = () => {
           {/* Menu Section */}
           <div className="hidden md:block">
             <ul
-              // reset activeId when the mouse leaves
               onMouseLeave={() =>
                 setPosition((pv) => ({ ...pv, opacity: 0, activeId: null }))
               }
-              className="relative flex items-center w-fit px-6 py-1 rounded-md border-2 border-black bg-white/80 select-none"
+              className="relative flex items-center w-fit px-2 lg:px-6 py-1 rounded-md border-2 border-black bg-white/80 select-none"
             >
               {NavbarMenu.map((menu) => (
                 <Tab
@@ -82,7 +80,7 @@ export const NavBar = () => {
                 onMouseEnter={() =>
                   setPosition((pv) => ({ ...pv, opacity: 0, activeId: null }))
                 }
-                className="relative z-10 ml-2 text-xl hover:scale-130 duration-400 p-2 text-[#3C3F8F]"
+                className="relative z-10 ml-1 lg:ml-2 text-xl hover:scale-125 duration-300 p-2 text-[#3C3F8F]"
               >
                 <FaCartShopping />
               </button>
@@ -91,7 +89,7 @@ export const NavBar = () => {
             </ul>
           </div>
 
-          {/*  Hamburger menu */}
+          {/* Hamburger menu */}
           <div className="md:hidden">
             <RiMenu5Fill
               className="text-4xl text-white cursor-pointer hover:text-white/80 transition-all"
@@ -100,9 +98,6 @@ export const NavBar = () => {
           </div>
         </motion.div>
       </nav>
-      <div className="h-[80px]"></div>
-
-      {/*  Mobile menu section */}
       <div className="md:hidden">
         <ResponsiveMenu open={isOpen} setIsOpen={setIsOpen} />
       </div>
@@ -127,11 +122,12 @@ const Tab = ({ children, setPosition, id, activeId, link }) => {
           activeId: id,
         });
       }}
-      className={`relative z-10 block cursor-pointer px-4 py-2 text-sm font-bold uppercase transition-colors duration-300 md:px-5 md:py-3 md:text-base ${
+      className={`relative z-10 block cursor-pointer px-3 py-2 font-bold uppercase transition-colors duration-300 
+      md:px-2 lg:px-5 md:text-sm lg:text-base ${
         isActive ? "text-white" : "text-[#11125d]"
       }`}
     >
-      <a href={link} className="block w-full h-full">
+      <a href={link} className="block w-full h-full whitespace-nowrap">
         {children}
       </a>
     </li>
@@ -151,7 +147,7 @@ const Cursor = ({ position }) => {
         stiffness: 400,
         damping: 30,
       }}
-      className="absolute z-0 h-[80%] rounded-md bg-[#3C3F8F] pointer-events-none"
+      className="absolute z-0 h-[85%] rounded-md bg-[#3C3F8F] pointer-events-none"
       style={{ top: "50%", y: "-50%" }}
     />
   );

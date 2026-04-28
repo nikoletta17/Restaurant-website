@@ -17,7 +17,7 @@ export const Hero = () => {
     <>
       <section className="bg-lightBlue">
         <div
-          className="min-h-screen flex pb-5 justify-center items-center relative overflow-hidden z-10"
+          className="min-h-screen flex pb-5 justify-center items-center relative overflow-hidden z-10 pt-20"
           style={{
             backgroundImage: `linear-gradient(135deg, #dbedf7 70%, #3c3f8f 70.1%)`,
           }}

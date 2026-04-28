@@ -111,7 +111,7 @@ export const OrderBanner = () => {
               <AnimatedTitle
                 tag="h2"
                 containerRef={scope}
-                className="my-7 flex items-center leading-[0.85] gap-1 text-[3.8rem] sm:text-[6rem] lg:text-[8rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]"
+                className="my-7 flex items-center leading-[0.85] gap-1 text-[3.5rem] sm:text-[4rem] md:text-[5rem] lg:text-[7rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]"
               >
                 Order now
                 <span className="font-customSans text-3xl lg:text-3xl text-[#1c1f61d3] ml-2 tracking-tight opacity-90 -mt-[-50px]">
