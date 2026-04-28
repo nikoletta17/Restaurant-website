@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import BgImg from "../../assets/2.png";
 import { motion } from "framer-motion";
+import { AnimatedTitle } from "../Common/AnimatedTitle";
 
 export const Newsletter = () => {
+  const sectionRef = useRef(null);
   return (
     <section
+      ref={sectionRef}
       id="contact"
-      className="relative bg-primary text-white overflow-hidden py-4 scroll-mt-20">
+      className="relative bg-primary text-white overflow-hidden py-4 scroll-mt-20"
+    >
       <div
         className="absolute top-0 left-0 w-[35%] h-[60%] bg-black pointer-events-none z-0 
                    [clip-path:polygon(0_0,_100%_0,_0_100%)] opacity-40"
@@ -21,9 +25,13 @@ export const Newsletter = () => {
           {/* Content */}
           <div className="flex flex-col items-center md:items-start space-y-6 max-w-md">
             <div className="text-center md:text-left space-y-4">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-playwrite text-white/95 leading-tight">
+              <AnimatedTitle
+                tag="h3"
+                containerRef={sectionRef}
+                className="text-2xl md:text-3xl lg:text-4xl font-semibold font-playwrite text-white/95 leading-tight"
+              >
                 Keep in touch
-              </h3>
+              </AnimatedTitle>
               <p className="font-normal font-customSans text-sm opacity-90">
                 Leave your review and we'll get back to you soon.
               </p>
@@ -52,10 +60,16 @@ export const Newsletter = () => {
           </div>
 
           {/* Plate img */}
-          <div className="flex-shrink-0">
-            <img
+          <div className="shrink-0">
+            <motion.img
               src={BgImg}
               alt="Newsletter decoration"
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 30, // large value - slow movements
+                repeat: Infinity, 
+                ease: "linear",
+              }}
               className="w-32 md:w-44 lg:w-52 h-auto object-contain drop-shadow-2xl"
             />
           </div>

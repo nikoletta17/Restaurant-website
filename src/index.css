@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Playwrite+IE:wght@100..400&family=Poppins:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Playwrite+IE:wght@100..400&family=Poppins:wght@400;700&display=swap");
 
 @import "tailwindcss";
 
@@ -6,7 +6,7 @@
   --font-customSans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-customCursive: "Great Vibes", cursive;
   --font-headers: "Allura", cursive;
-  --font-playwrite: 'Playwrite IE', cursive;
+  --font-playwrite: "Playwrite IE", cursive;
 
   --color-primary: #5d60c1;
   --color-dark: #1e1e1e;
@@ -24,13 +24,13 @@
   }
 
   ::-webkit-scrollbar-track {
-     background: #ABB7E2;
+    background: #abb7e2;
   }
 
   ::-webkit-scrollbar-thumb {
     background: var(--color-primary);
     border-radius: 16px;
-     border: 2px solid #ABB7E2;
+    border: 2px solid #abb7e2;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -40,12 +40,12 @@
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-primary) #ABB7E2;;
+    scrollbar-color: var(--color-primary) #abb7e2;
   }
 }
 
 @layer components {
   .footer__headers {
-    @apply text-2xl font-light uppercase mb-6
+    @apply text-2xl font-light uppercase mb-6;
   }
 }

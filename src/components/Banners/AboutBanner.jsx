@@ -11,18 +11,25 @@ export const AboutBanner = () => {
     offset: ["start end", "end start"],
   });
 
-  const circleX = useTransform(scrollYProgress, [0, 0.5, 1], [-80, 0, -80]);
-  const circleScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+  //The greater the difference between the average numbers, the longer the content will be stationary.
+  const scrollPoints = [0, 0.45, 0.6, 1];
 
-  const textX = useTransform(scrollYProgress, [0, 0.5, 1], [150, 0, 150]);
-  const imgX = useTransform(scrollYProgress, [0, 0.5, 1], [-200, 0, -200]);
+  const circleX = useTransform(scrollYProgress, scrollPoints, [-80, 0, 0, -80]);
+  const circleScale = useTransform(
+    scrollYProgress,
+    scrollPoints,
+    [0.8, 1, 1, 0.8],
+  );
+
+  const textX = useTransform(scrollYProgress, scrollPoints, [150, 0, 0, 150]);
+  const imgX = useTransform(scrollYProgress, scrollPoints, [-200, 0, 0, -200]);
 
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.2, 0.5, 0.8, 1],
     [0, 1, 1, 1, 0],
   );
-  
+
   const overallScale = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
@@ -36,7 +43,7 @@ export const AboutBanner = () => {
         id="about"
         className="overflow-hidden bg-lightBlue scroll-mt-15"
       >
-        <div className="min-h-screen flex justify-center items-center">
+        <div className="min-h-screen flex justify-center items-center p-5">
           <motion.div
             style={{ scale: overallScale }}
             className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-10"

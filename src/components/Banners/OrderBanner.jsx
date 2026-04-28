@@ -26,7 +26,7 @@ export const OrderBanner = () => {
         "#plate",
         {
           x: 0,
-          y: -250,
+          y: -50,
           opacity: 1,
           rotate: 90,
         },
@@ -85,15 +85,33 @@ export const OrderBanner = () => {
 
   return (
     <>
-      <section ref={scope} id="order" className="overflow-hidden bg-lightBlue">
+      <section ref={scope} id="order" className="overflow-hidden bg-lightBlue relative">
+        {/* Left triangle */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 0.2, x: 0 }}
+          transition={{ duration: 1 }}
+          className="hidden lg:block absolute top-0 left-0 w-[30%] h-[40%] bg-[#6265C3] pointer-events-none z-0"
+          style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+        ></motion.div>
+
+        {/* Right triangle */}
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 0.2, x: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="hidden lg:block absolute top-0 right-0 w-[30%] h-[40%] bg-[#6265C3] pointer-events-none z-0"
+          style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }}
+        ></motion.div>
+
         <div className="min-h-screen flex justify-center items-center px-5 py-20 md:py-0 md:pb-7 lg:pb-0">
           <div className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-2">
             {/* Content section */}
-            <div className="space-y-6 w-full sm:w-1/2 text-center flex flex-col items-center sm:mt-20">
+            <div className="space-y-6 w-full sm:w-1/2 text-center flex flex-col items-center px-5 sm:mt-20">
               <AnimatedTitle
                 tag="h2"
                 containerRef={scope}
-                className="my-7 flex items-center leading-[0.85] gap-1 text-[7rem] lg:text-[8rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]"
+                className="my-7 flex items-center leading-[0.85] gap-1 text-[3.8rem] sm:text-[6rem] lg:text-[8rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]"
               >
                 Order now
                 <span className="font-customSans text-3xl lg:text-3xl text-[#1c1f61d3] ml-2 tracking-tight opacity-90 -mt-[-50px]">

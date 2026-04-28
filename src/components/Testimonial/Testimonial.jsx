@@ -89,7 +89,7 @@ export const Testimonial = () => {
       className="bg-[#ABB7E2] overflow-hidden"
     >
       <div className="py-10 mb-10">
-        <div className="container">
+        <div className="container mx-auto">
           {/* Header section */}
           <div className="mb-10">
             <AnimatedTitle

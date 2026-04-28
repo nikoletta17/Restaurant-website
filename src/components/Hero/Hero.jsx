@@ -17,7 +17,7 @@ export const Hero = () => {
     <>
       <section className="bg-lightBlue">
         <div
-          className="min-h-screen flex justify-center items-center relative overflow-hidden z-10"
+          className="min-h-screen flex pb-5 justify-center items-center relative overflow-hidden z-10"
           style={{
             backgroundImage: `linear-gradient(135deg, #dbedf7 70%, #3c3f8f 70.1%)`,
           }}
@@ -39,7 +39,7 @@ export const Hero = () => {
           </motion.div>
 
           {/* Main content container */}
-          <div className="container pb-8 sm:pb-0 relative z-30 sm:px-5">
+          <div className="container pb-8 sm:pb-0 pt-3 relative z-30 px-3 sm:px-5">
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] sm:gap-7 gap-0 items-center">
               {/* Text content section */}
               <div
@@ -54,7 +54,7 @@ export const Hero = () => {
                 >
                   <motion.h1
                     style={{ letterSpacing, opacity: textOpacity }}
-                    className="my-7 flex items-center leading-[0.85] gap-1 text-[7rem] lg:text-[10rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]"
+                    className="my-7 flex items-center leading-[0.85] gap-1 text-[4rem] sm:text-[6rem] lg:text-[10rem] font-headers bg-clip-text text-transparent bg-linear-to-r from-primary via-primary/95 to-[#3c3f8f]"
                   >
                     Dishes
                     <span className="font-customSans text-3xl lg:text-4xl text-[#1c1f61d3] ml-2 tracking-tight opacity-90 -mt-8">
