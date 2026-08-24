@@ -123,7 +123,7 @@ export const OrderBanner = () => {
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: false, amount: 0.5 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
                 className="font-customSans text-lg sm:text-left text-dark/80 leading-relaxed max-w-md mx-auto sm:mx-0"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
